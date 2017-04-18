@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="localTransactionChecker" class="com.hehaoyisheng.testUser.main.App"></bean>
+    <bean id="transactionProducer" class="com.aliyun.openservices.ons.api.bean.TransactionProducerBean" init-method="start" destroy-method="shutdown">
+        <property name="properties" > <!--事务消息生产者配置信息-->
+            <props>
+                <prop key="ProducerId">PID_11403080437</prop> <!--请替换XXX-->
+                <prop key="AccessKey">LTAIAXl6C3F3Qq9b</prop>
+                <prop key="SecretKey">oIWRE2lhBNqqBXGP26WrXgGJYwLiuD</prop>
+            </props>
+        </property>
+        <property name="localTransactionChecker" ref="localTransactionChecker"></property>
+    </bean>
+</beans>
